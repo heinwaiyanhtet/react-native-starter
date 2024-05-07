@@ -1,5 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
-import { ScrollView, Text, View,Image, TextInput } from 'react-native';
+import { useState } from 'react';
+import { View,StyleSheet, FlatList,Text } from 'react-native';
+
+const styles = StyleSheet.create({
+
+  container:{
+    flex:1,
+    paddingTop:22,
+  },
+
+  item:{
+     padding:10,
+     fontSize:18,
+     height:44,
+  }
+
+})
+
+
 export default function App() {
 
   // const name = "Maru";
@@ -9,34 +27,60 @@ export default function App() {
 
   return (
 
-    <ScrollView>
 
-         <Text>Some Text</Text>
-         <View>
+      <View style={styles.container}>
 
-            <Text>Some more Text</Text>
+          <FlatList 
 
-            <Image
-              source={{
-                uri:'https://reactnative.dev/docs/assets/p_cat2.png'
-              }}
-              style={{width:200,height:200}}
-            >
-            </Image>
-            
-         </View>
+              data={[
+                {key:'Devin'},
+                {key:'Devin'},
+                {key:'Devin'},
+                {key:'Devin'},
+                {key:'Devin'},
+                {key:'Devin'},
+                {key:'Devin'},
+                {key:'Devin'},
+                {key:'Devin'},
+              ]}
 
-         <TextInput
-            style={{
-              height:40,
-              borderColor:'gray',
-              borderWidth:1
-            }}
-            defaultValue="You can type in me"
-         >
-         </TextInput>
+              renderItem={ ({item})  => <Text style={styles.item}> {item.key}  </Text>}
+          
+          />
 
-    </ScrollView>
+
+      </View>
+    // <ScrollView>
+
+    //      <Text>Some Text</Text>
+
+    //      <View>
+
+    //         <Text>Some more Text</Text>
+
+    //         <Image
+    //           source={{
+    //             uri:'https://reactnative.dev/docs/assets/p_cat2.png'
+    //           }}
+    //           style={{width:200,height:200}}
+    //         >
+    //         </Image>
+
+    //      </View>
+
+    //      <TextInput
+    //         style={{
+    //           height:40,
+    //           borderColor:'gray',
+    //           borderWidth:1
+    //         }}
+    //         defaultValue="You can type in me"
+    //      >
+    //      </TextInput>
+
+    // </ScrollView>
+
+
     // <View style={styles.container}>
     //   <Text>Open up App.js to start working on your app! {name}!</Text>
     //   <Text>Hello I am {getFullName('Hein','Wai','Yan')}</Text>
